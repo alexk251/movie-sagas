@@ -15,6 +15,12 @@ function MovieList() {
     }, []);
 
     const goToDetails = () => {
+        
+        dispatch({ type: 'FETCH_MOVIE' });
+    
+        dispatch({ type: 'FETCH_GENRES' });
+    
+
         history.push('/Details')
     }
 

@@ -4,7 +4,7 @@
     [ ] axios.get in generator
     [ ] dispatch to reducers for genre and details
     [ ] generator in saga watcher
-    [ ] Wireframe for component (HTML)
+    [x] Wireframe for component (HTML)
     [ ] reducer for movie details
     [ ] reducer for movie genre
     [ ] router to get genre 

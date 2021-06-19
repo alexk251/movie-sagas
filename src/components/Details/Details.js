@@ -1,9 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 function Details() {
+    //selects movie reducer to obtain and store details
     const movie = useSelector(store => store.details);
-    const genres = useSelector(store => store.genres)
+    //selects genres reducer to obtain and store genres of movie
+    const genres = useSelector(store => store.genres);
     return (
         <>
             <div key={movie.id} >
