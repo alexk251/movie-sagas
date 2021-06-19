@@ -10,8 +10,8 @@
     [x] reducer for movie genre
     [x] router to get genre 
 [ ] Add Movie Page
-    [ ] set up router click action to add movie form
-    [ ] Wireframe for component
+    [X] set up router click action to add movie form
+    [X] Wireframe for component
     [ ] dispatch for put request
     [ ] local states for form
     [ ] axios.post in generator

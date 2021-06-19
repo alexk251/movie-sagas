@@ -22,7 +22,7 @@ function* fetchGenres(action) {
     try {
         const genres = yield axios.get(`/api/genre/${action.payload}`);
         console.log('get all:', genres.data);
-        yield put({ type: 'SET_GENRES', payload: genres.data });
+        yield put({ type: 'SET_GENRE', payload: genres.data });
 
     } catch (error){
         console.log('get all error',error);
@@ -86,12 +86,22 @@ const genres = (state = [], action) => {
     }
 }
 
+// Used to store the movie genres
+const genre = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_GENRE':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
         movie,
+        genre,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
