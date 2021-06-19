@@ -8,7 +8,7 @@ function Details() {
     const genres = useSelector(store => store.genres);
     return (
         <>
-            <div key={movie.id} >
+            {/* <div key={movie.id} >
                 <h3>{movie.title}</h3>
                 <img src={movie.poster} alt={movie.title}/>
                 <h2>Genre/Genres:</h2>
@@ -20,7 +20,7 @@ function Details() {
                     );
                 })}
                 <p>{movie.description}</p>
-            </div>
+            </div> */}
         </>
     )
 }

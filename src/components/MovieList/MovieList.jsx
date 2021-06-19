@@ -1,39 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
-import { useHistory } from 'react-router-dom'
-import Details from '../Details/Details';
+import MovieItem from '../MovieItem/MovieItem'
 
 function MovieList() {
 
     const dispatch = useDispatch();
-    const history = useHistory();
     const movies = useSelector(store => store.movies);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const goToDetails = () => {
-        
-        dispatch({ type: 'FETCH_MOVIE' });
-    
-        dispatch({ type: 'FETCH_GENRES' });
-    
-
-        history.push('/Details')
-    }
-
     return (
         <main>
             <h1>MovieList</h1>
             <section className="movies">
-                {movies.map(movie => {
+                {movies.map((movie) => {
                     return (
-                        <div key={movie.id} >
-                            <h3 onClick={goToDetails}>{movie.title}</h3>
-                            <img onClick={goToDetails} src={movie.poster} alt={movie.title}/>
-                        </div>
+                        <MovieItem key={movie.id} movie={movie} />
                     );
                 })}
             </section>
