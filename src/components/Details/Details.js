@@ -5,7 +5,7 @@ function Details() {
     //selects movie reducer to obtain and store details
     const movie = useSelector(store => store.movie);
     //selects genres reducer to obtain and store genres of movie
-    const genres = useSelector(store => store.genre);
+    const genres = useSelector(store => store.genres);
     return (
         <>
             <div key={movie[0]?.id} >

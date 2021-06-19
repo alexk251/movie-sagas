@@ -1,27 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import React, {useEffect, useState}from 'react';
+import React,{ useState }from 'react';
 import Select from "@material-ui/core/Select";
 
 function AddMovie() {
 
     const dispatch = useDispatch();
-    const genres = useSelector((store => store.genre))
 
     let [newMovie, setMovie] = useState({
-        id: 15,
+        id: 16,
         title: '',
         poster: '',
-        description: ''
+        description: '',
+        genre_id: ''
     })
-
-    let [newMovieGenre, setNewMovieGenre] = useState({
-        id: '',
-        name: ''
-    })
-
-    useEffect(() => {
-        dispatch({ type: 'FETCH_GENRE' });
-    }, []);
 
     const handleNameChange = (event) => {
         setMovie({...newMovie, title: event.target.value})
@@ -34,18 +25,17 @@ function AddMovie() {
     const handleDescriptionChange = (event) => {
         setMovie({...newMovie, description: event.target.value})
     }
-
-    const setNewmovieGenre = (event) => {
-        setNewMovieGenre({...newMovieGenre, name: event.target.value})
+    
+    const handleNewMovieGenre = (event) => {
+        setMovie({...newMovie, genre_id: event.target.value})
     }
 
     const addNewMovie = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_MOVIE', payload: newMovie});
-        dispatch({ type: 'ADD_GENRE', payload: newMovieGenre});
 
 
-        setMovie({id:newPlant.id +1, name: ''});
+        setMovie({id:newMovie.id +1, name: ''});
     }
 
     return (
@@ -55,13 +45,22 @@ function AddMovie() {
                 <input type='text' value={newMovie.title} placeholder='Movie Title' onChange={handleNameChange} />
                 <input type='text' value={newMovie.poster} placeholder='Movie Poster URL' onChange={handlePosterChange} />
                 <input type='text' value={newMovie.description} placeholder='Movie Description' onChange={handleDescriptionChange} />
-                <Select id={newMovieGenre.id} value= {newMovieGenre.name} onChange={setNewmovieGenre}>
-                    {genres.map(name => (
-                        <div key={name.name} value={name.name}>
-                            {name.name}
-                        </div>
-                    ))}
-                </Select>
+                <select onChange={handleNewMovieGenre}>
+                    <option value >Select</option>
+                    <option value="1">Adventure</option>
+                    <option value="2">Animated</option>
+                    <option value="3">Biographical</option>
+                    <option value="4">Comedy</option>
+                    <option value="5">Disaster</option>
+                    <option value="6">Drama</option>
+                    <option value="7">Epic</option>
+                    <option value="8">Fantasy</option>
+                    <option value="9">Musical</option>
+                    <option value="10">Romantic</option>
+                    <option value="11">Science Fiction</option>
+                    <option value="12">Space-Opera</option>
+                    <option value="13">Superhero</option>
+                </select>
                 <input type='submit' value='Add New Movie' />
             </form>
         </div>
