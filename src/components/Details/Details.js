@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux';
 
 function Details() {
     //selects movie reducer to obtain and store details
-    const movie = useSelector(store => store.details);
+    const movie = useSelector(store => store.movie);
     //selects genres reducer to obtain and store genres of movie
     const genres = useSelector(store => store.genres);
     return (
         <>
-            {/* <div key={movie.id} >
-                <h3>{movie.title}</h3>
-                <img src={movie.poster} alt={movie.title}/>
+            <div key={movie[0]?.id} >
+                <h3>{movie[0]?.title}</h3>
+                <img src={movie[0]?.poster} alt={movie[0]?.title}/>
                 <h2>Genre/Genres:</h2>
                 {genres.map(genre => {
                     return (
@@ -19,8 +19,8 @@ function Details() {
                         </div>
                     );
                 })}
-                <p>{movie.description}</p>
-            </div> */}
+                <p>{movie[0]?.description}</p>
+            </div>
         </>
     )
 }
