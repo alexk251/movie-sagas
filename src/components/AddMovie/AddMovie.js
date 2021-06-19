@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import React, {useState}from 'react';
+import React, {useEffect, useState}from 'react';
 import Select from "@material-ui/core/Select";
 
 function AddMovie() {
@@ -14,9 +14,14 @@ function AddMovie() {
         description: ''
     })
 
-    let [newMovieGenre, setNewmovieGenre] = useState({
+    let [newMovieGenre, setNewMovieGenre] = useState({
+        id: '',
         name: ''
     })
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GENRE' });
+    }, []);
 
     const handleNameChange = (event) => {
         setMovie({...newMovie, title: event.target.value})
@@ -28,6 +33,10 @@ function AddMovie() {
 
     const handleDescriptionChange = (event) => {
         setMovie({...newMovie, description: event.target.value})
+    }
+
+    const setNewmovieGenre = (event) => {
+        setNewMovieGenre({...newMovieGenre, name: event.target.value})
     }
 
     const addNewMovie = (event) => {
@@ -46,11 +55,11 @@ function AddMovie() {
                 <input type='text' value={newMovie.title} placeholder='Movie Title' onChange={handleNameChange} />
                 <input type='text' value={newMovie.poster} placeholder='Movie Poster URL' onChange={handlePosterChange} />
                 <input type='text' value={newMovie.description} placeholder='Movie Description' onChange={handleDescriptionChange} />
-                <Select value= {newMovieGenre.name} onChange={(event) => setNewmovieGenre(event.target.value)}>
-                    {genres.map((name) => (
-                        <MenuItem key={name.id} value={name.id}>
+                <Select id={newMovieGenre.id} value= {newMovieGenre.name} onChange={setNewmovieGenre}>
+                    {genres.map(name => (
+                        <div key={name.name} value={name.name}>
                             {name.name}
-                        </MenuItem>
+                        </div>
                     ))}
                 </Select>
                 <input type='submit' value='Add New Movie' />
