@@ -1,10 +1,10 @@
 --movie saga project to do list--
 [ ] Details Component
-    [ ] set up router click action to detils component
+    [x] set up router click action to detils component
     [ ] axios.get in generator
     [ ] dispatch to reducers for genre and details
     [ ] generator in saga watcher
-    [ ] Wireframe for component (HTML)
+    [x] Wireframe for component (HTML)
     [ ] reducer for movie details
     [ ] reducer for movie genre
     [ ] router to get genre 
