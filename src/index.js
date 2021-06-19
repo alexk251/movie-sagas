@@ -17,6 +17,25 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIE', fetchMovie);
     yield takeEvery('FETCH_GENRES', fetchGenres);
     yield takeEvery('FETCH_GENRE', fetchGenre);
+    yield takeEvery('ADD_MOVIE', addMovie);
+    yield takeEvery('ADD_GENRE', addGenre);
+}
+
+function* addMovie(){
+    try{
+        yield axios.post('/api/movie', action.payload);
+        yield put({ type:'FETCH_MOVIES'})
+    } catch (error) {
+        console.error('error with post request',error)
+    }
+}
+
+function* addGenre(){
+    try{
+        yield axios.post('/api/genre', action.payload);
+    } catch (error) {
+        console.error('error with post request',error)
+    }
 }
 
 function* fetchGenre(){
