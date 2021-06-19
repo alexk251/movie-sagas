@@ -9,10 +9,10 @@
     [x] reducer for movie details
     [x] reducer for movie genre
     [x] router to get genre 
-[ ] Add Movie Page
+[x] Add Movie Page
     [X] set up router click action to add movie form
     [X] Wireframe for component
-    [ ] dispatch for put request
-    [ ] local states for form
-    [ ] axios.post in generator
-    [ ] generator in saga watcher
+    [x] dispatch for put request
+    [x] local states for form
+    [x] axios.post in generator
+    [x] generator in saga watcher
