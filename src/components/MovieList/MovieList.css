@@ -24,3 +24,8 @@ img {
 body {
     background-color: #add8e6;
 }
+
+.Card {
+    width: 12em;
+    max-width: 12em;
+}
