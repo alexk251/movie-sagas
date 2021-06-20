@@ -1,5 +1,5 @@
 import { useDispatch} from 'react-redux';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 function MovieItem(props) {
 
@@ -10,7 +10,7 @@ function MovieItem(props) {
         
         dispatch({ type: 'FETCH_MOVIE', payload: props.movie.id });
     
-        // dispatch({ type: 'FETCH_GENRES', payload: movies.id });
+        dispatch({ type: 'FETCH_GENRES', payload: props.movie.id });
     
 
         history.push('/Details')
