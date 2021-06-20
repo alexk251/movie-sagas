@@ -16,3 +16,14 @@
     [x] local states for form
     [x] axios.post in generator
     [x] generator in saga watcher
+
+[ ] Buttons Rename and history push
+    [ ] Button that cancels and returns from addition page to list page
+    [ ] Button for addition renamed save button and also returns to list page when done
+    [ ] Button for Details page called Back to List that takes you back to list page
+
+[ ] Styling with material UI
+
+[ ] comment each component throughly
+
+[ ] Read Me update
