@@ -24,6 +24,6 @@
 
 [x] Styling with material UI
 
-[ ] comment each component throughly
+[x] comment each component throughly
 
 [ ] Read Me update
