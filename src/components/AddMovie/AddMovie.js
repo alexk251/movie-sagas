@@ -6,19 +6,22 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import Input from '@material-ui/core/Input';
 import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
+import './AddMovie.css'
 
 function AddMovie() {
-
+    // establish history to push to other pages
     const history = useHistory();
-
+    // establish dispatch to call watchers and reducers in redux/saga in index.js
     const dispatch = useDispatch();
-
+    // call useselector to store genres locally from reducer
     const genres = useSelector((store => store.genre))
 
     useEffect(() => {
+        // fetch genres from reducer on page load
         dispatch({ type: 'FETCH_GENRE' });
     }, []);
 
+    // use state to store a local state that stores new movie data in an object
     let [newMovie, setMovie] = useState({
         id: 16,
         title: '',
@@ -27,22 +30,24 @@ function AddMovie() {
         genre_id: ''
     })
 
+        // records changes of movie title input
     const handleNameChange = (event) => {
         setMovie({...newMovie, title: event.target.value})
     }
-
+        // records changes of movie poster input
     const handlePosterChange = (event) => {
         setMovie({...newMovie, poster: event.target.value})
     }
-
+        // records changes of movie description input
     const handleDescriptionChange = (event) => {
         setMovie({...newMovie, description: event.target.value})
     }
-    
+        // records changes of movie genre input
     const handleNewMovieGenre = (event) => {
         setMovie({...newMovie, genre_id: event.target.value})
     }
-
+        // dispatches new movie object to watcher which adds new movie to the database
+        // then returns to home page
     const addNewMovie = (event) => {
         event.preventDefault();
         dispatch({ type: 'ADD_MOVIE', payload: newMovie});
@@ -60,6 +65,7 @@ function AddMovie() {
         history.push('/')
     }
     return (
+        // renders inputs for new movie in a card
         <Card>
             <h2>Add New Movie</h2>
             <form onSubmit={addNewMovie}>

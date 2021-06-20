@@ -22,7 +22,7 @@
     [x] Button for addition renamed save button and also returns to list page when done
     [x] Button for Details page called Back to List that takes you back to list page
 
-[ ] Styling with material UI
+[x] Styling with material UI
 
 [ ] comment each component throughly
 

@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 
 function Details() {
+    //establishes history to push to new pages
     const history = useHistory();
     //selects movie reducer to obtain and store details
     const movie = useSelector(store => store.movie);
@@ -12,10 +13,12 @@ function Details() {
     const genres = useSelector(store => store.genres);
 
     const goToHome = () => { 
+        //button action to push to home page
         history.push('/')
     }
     return (
-        <Card className='Card'>
+        // render card details
+        <Card>
             <div key={movie[0]?.id} >
                 <h3>{movie[0]?.title}</h3>
                 <Card><img src={movie[0]?.poster} alt={movie[0]?.title}/></Card>

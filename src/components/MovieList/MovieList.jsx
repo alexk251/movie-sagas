@@ -8,16 +8,20 @@ import Button from '@material-ui/core/Button';
 
 
 function MovieList() {
-
+    // establish history used to push to different pages
     const history = useHistory();
+    // establish dispatch use to call reducers in redux
     const dispatch = useDispatch();
+    // estabish movies from useselector which uses variables stored in the store
     const movies = useSelector(store => store.movies);
 
     const AddMovie = () => {
+        // navigate to add movie page
         history.push('AddMovie')
     }
 
     useEffect(() => {
+        // on page load get all the movie data
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
@@ -28,6 +32,8 @@ function MovieList() {
             <br/>
             <section className="movies">
                 <Grid container spacing={3}>
+                    {/* map over movies array of movies data 
+                    to render list of selectable movies */}
                 {movies.map((movie) => {
                     return (
                         <MovieItem key={movie.id} movie={movie} />
