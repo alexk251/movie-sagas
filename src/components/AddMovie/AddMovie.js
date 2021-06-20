@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React,{ useState, useEffect }from 'react';
 import Select from "@material-ui/core/Select";
+import { useHistory } from 'react-router-dom';
 
 function AddMovie() {
+
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
@@ -45,10 +48,16 @@ function AddMovie() {
         poster: '',
         description: '',
         genre_id: ''});
+
+        history.push('/')
     }
 
+    const goToHome = () => { 
+        history.push('/')
+    }
     return (
         <div>
+            <h2>Add New Movie</h2>
             <form onSubmit={addNewMovie}>
                 
                 <input type='text' value={newMovie.title} placeholder='Movie Title' onChange={handleNameChange} />
@@ -61,7 +70,8 @@ function AddMovie() {
                     </option>
                 ))}
                 </select>
-                <input type='submit' value='Add New Movie' />
+                <input type='submit' value='Save' />
+                <button onClick={goToHome}>Cancel</button>
             </form>
         </div>
     );

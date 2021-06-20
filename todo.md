@@ -17,10 +17,10 @@
     [x] axios.post in generator
     [x] generator in saga watcher
 
-[ ] Buttons Rename and history push
-    [ ] Button that cancels and returns from addition page to list page
-    [ ] Button for addition renamed save button and also returns to list page when done
-    [ ] Button for Details page called Back to List that takes you back to list page
+[x] Buttons Rename and history push
+    [x] Button that cancels and returns from addition page to list page
+    [x] Button for addition renamed save button and also returns to list page when done
+    [x] Button for Details page called Back to List that takes you back to list page
 
 [ ] Styling with material UI
 
