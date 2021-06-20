@@ -2,6 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import React,{ useState, useEffect }from 'react';
 import Select from "@material-ui/core/Select";
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import Input from '@material-ui/core/Input';
+import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
 
 function AddMovie() {
 
@@ -56,24 +60,31 @@ function AddMovie() {
         history.push('/')
     }
     return (
-        <div>
+        <Card>
             <h2>Add New Movie</h2>
             <form onSubmit={addNewMovie}>
                 
-                <input type='text' value={newMovie.title} placeholder='Movie Title' onChange={handleNameChange} />
-                <input type='text' value={newMovie.poster} placeholder='Movie Poster URL' onChange={handlePosterChange} />
-                <input type='text' value={newMovie.description} placeholder='Movie Description' onChange={handleDescriptionChange} />
-                <select onChange={handleNewMovieGenre}>
+                <Input type='text' value={newMovie.title} placeholder='Movie Title' onChange={handleNameChange} />
+                <Input type='text' value={newMovie.poster} placeholder='Movie Poster URL' onChange={handlePosterChange} />
+                <Input type='text' value={newMovie.description} placeholder='Movie Description' onChange={handleDescriptionChange} />
+                <br/>
+                <FormControl>
+                <InputLabel id="select-label">Genre</InputLabel>
+                <Select 
+                labelId="select-label"
+                onChange={handleNewMovieGenre}>
                     {genres.map((name) => (
-                    <option key={name.id} value={name.id}>
+                    <MenuItem key={name.id} value={name.id}>
                         {name.name}
-                    </option>
+                    </MenuItem>
                 ))}
-                </select>
-                <input type='submit' value='Save' />
-                <button onClick={goToHome}>Cancel</button>
+                </Select>
+                </FormControl>
+                <br/>
+                <Input type='submit' value='Save' />
+                <Button onClick={goToHome}>Cancel</Button>
             </form>
-        </div>
+        </Card>
     );
 }
 export default AddMovie;

@@ -1,4 +1,26 @@
 .movies {
-    display : flex;
-    flex-wrap: wrap;
+    display:flex;
+  align-items:space-between;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+img {
+    max-height: 274px;
+    max-width: 185px;
+    width: 185px;
+    height: 274px;
+}
+
+.MuiCard-root {
+    padding: 2rem;
+    margin: 2rem;
+}
+
+.MuiCard-root {
+    background-color: #add8e6;
+}
+
+body {
+    background-color: #add8e6;
 }

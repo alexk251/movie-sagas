@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import './Details.css'
+import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 
 function Details() {
     const history = useHistory();
@@ -13,10 +15,11 @@ function Details() {
         history.push('/')
     }
     return (
-        <>
+        <Card className='Card'>
             <div key={movie[0]?.id} >
                 <h3>{movie[0]?.title}</h3>
-                <img src={movie[0]?.poster} alt={movie[0]?.title}/>
+                <Card><img src={movie[0]?.poster} alt={movie[0]?.title}/></Card>
+                <Card><div className='Genre'>
                 <h2>Genre/Genres:</h2>
                 {genres.map(genre => {
                     return (
@@ -25,10 +28,11 @@ function Details() {
                         </div>
                     );
                 })}
-                <p>{movie[0]?.description}</p>
-                <button onClick={goToHome}>Back to List</button>
+                </div></Card>
+                <Card><p className='Desc'>{movie[0]?.description}</p></Card>
+                <Button onClick={goToHome}>Back to List</Button>
             </div>
-        </>
+        </Card>
     )
 }
 
