@@ -70,14 +70,16 @@ function AddMovie() {
             <h2>Add New Movie</h2>
             <form onSubmit={addNewMovie}>
                 
-                <Input type='text' value={newMovie.title} placeholder='Movie Title' onChange={handleNameChange} />
-                <Input type='text' value={newMovie.poster} placeholder='Movie Poster URL' onChange={handlePosterChange} />
-                <Input type='text' value={newMovie.description} placeholder='Movie Description' onChange={handleDescriptionChange} />
+                <Input required type='text' value={newMovie.title} placeholder='Movie Title' onChange={handleNameChange} />
+                <Input required type='text' value={newMovie.poster} placeholder='Movie Poster URL' onChange={handlePosterChange} />
+                <Input required type='text' value={newMovie.description} placeholder='Movie Description' onChange={handleDescriptionChange} />
                 <br/>
                 <FormControl>
                 <InputLabel id="select-label">Genre</InputLabel>
                 <Select 
                 labelId="select-label"
+                defaultValue=''
+                required
                 onChange={handleNewMovieGenre}>
                     {genres.map((name) => (
                     <MenuItem key={name.id} value={name.id}>
